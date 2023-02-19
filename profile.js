@@ -1,4 +1,4 @@
-const usernameh1 = document.getElementById('usernameh1');
+const usernameheading = document.getElementById('usernameheading');
 
 
 
@@ -35,7 +35,6 @@ function getUsernameFromUrl() {
 
     let url = document.URL;
     let userid = url.split("/profile.html?")[1];
-    usernameh1.innerHTML = userid;
+    usernameheading.innerHTML = userid;
     return userid;
 }
-
