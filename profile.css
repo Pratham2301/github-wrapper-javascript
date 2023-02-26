@@ -8,7 +8,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Joan&family=Roboto+Slab:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
 
+/* font-family: 'Work Sans', sans-serif; */
+/* font-family: 'Roboto Slab', serif; */
 /*************************************************************************/
 
 
@@ -26,68 +29,147 @@ html {
 .navbar {
     height: 8vh;
     font-family: 'Work Sans', sans-serif;
-    /* font-family: 'Roboto Slab', serif; */
 }
 
-.main{
+#main-div{
     background-color: #050D21;
+    height: auto;
 }
 
-.main-info {
-    background-color: #050D21;
-    color: rgb(255, 255, 255);
-    height: 50vh;
-    /* background-color: aqua; */
-    padding: 5rem 30rem;
+.profile-div {
+    height: 52vh;
+    
+    font-family: 'Roboto Slab', serif;
     font-family: 'Work Sans', sans-serif;
 }
 
-.profile{
-    width: 25%;
+
+#profile-pic{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.repo-list {
-    min-height: 20vh;
+
+#profile-stats{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-right: 20vw;
+}
+
+.tabPos{
+    text-align: end;
+}
+
+
+.repo-div {
+    height: auto;
     background-color: #050D21;
-    color: rgb(255, 255, 255);
-    height: 50vh;
-    /* background-color: aqua; */
-    padding: 5rem 30rem;
+    padding: 10vh 5vw;
     font-family: 'Work Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
+.repo-div h1{
+    font-size: xx-large;
+}
+
+.card{
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+.repo-div .card .card-body{
+    /* background-color: rgb(255, 255, 255); */
+    background-color: transparent;
+    min-height: 40vh;
+}
+
+.brad .card{
+    background-color: transparent;
+    border-radius: 1.5rem;
+    border: 2px solid white;
+}
+
+.repo-div .card-body{
+    border-radius: 1.5rem;
+    /* background-color: rgb(21, 6, 52); */
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}
+
+#st1{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20vw;
+}
+
+#st2{
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 2vw;
+}
+
+#st3{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#st1 img{
+    width: 118%;
+    height: auto;
+    /* overflow-x: hidden; */
+}
 /*************************************************************************/
 
 
 @media screen and (max-width: 600px) {
 
-    .main-info {
-        min-height: 100vh;
+    .profile-div{
         height: auto;
-        padding: 0;
-        max-width: 100vw;
-        min-width: 100vw;
-        /* padding: 2rem; */
-        font-size: 1rem;
-        /* flex-direction: column; */
     }
 
-    .profile{
-        min-height: 50vh;
-        height: auto;
-        min-width: 50vw;
+    .card{
+        width: 15rem;
     }
 
-    .profile img{
-        height: auto;
+    #profile-pic{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    #profile-stats{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tabPos{
+        text-align: center;
+    }
+
+    .brad{
         width: 100%;
-        min-width: 70vw;
+        display: flex;
+        justify-content: center;
     }
 
-    .stats{
-        min-height: 50vh;
+    .repo-div{
+        padding: 0;
+    }
+
+    #rcard{
+        width: 80%;
         height: auto;
-        min-width: 100vw;
     }
-
 }
