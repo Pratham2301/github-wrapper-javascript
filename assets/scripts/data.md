@@ -38,6 +38,9 @@
 "homepage": "https://pratham2301.github.io/Calculator-Html-Css-Js/",
  -->
 
+ <!-- https://github-readme-activity-graph.cyclic.app/graph?username=Pratham2301&bg_color=0D1117&color=5BCDEC&line=5BCDEC&point=FFFFFF&hide_border=true -->
+
+<!-- https://github-profile-trophy.vercel.app/?username=Pratham2301&theme=onedark&no-frame=false&no-bg=true&margin-w=4 -->
 {
   "message": "Not Found",
   "documentation_url": "https://docs.github.com/rest/reference/users#get-a-user"

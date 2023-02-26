@@ -14,7 +14,7 @@
 
 html {
     font-size: 62.5%;
-    height: auto;
+    height: 100vh;
 }
 
 * {
@@ -55,7 +55,7 @@ html {
 }
 
 .right-side img {
-    width: 100%;
+    width: 75%;
 }
 
 input {
@@ -106,15 +106,39 @@ button:active{
 
 
 @media screen and (max-width: 480px) {
+
+    *{
+        max-height: 100vh;
+    }
+
+    input {
+        width: 150%;
+        max-width: 80vw;
+    }
+
+    #search-btn {
+        display: none;
+        width: 70%;
+        height: auto;
+    }
+
     .section1 {
         background-color: #050D21;
         /* height: 70vh; */
         flex-wrap: wrap;
         text-align: center;
+        padding:8rem;
+    }
+
+    .left-text{
+        font-size: 2rem;
+        max-width: 100vw;
     }
 
     .left-side {
         width: 100vw;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 
     .right-side {

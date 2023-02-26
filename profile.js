@@ -6,7 +6,7 @@ const usernameheading = document.getElementById('usernameheading');
 
 function updateProfile(data) 
 {
-    console.log(data);
+    // console.log(data);
 
     const login = data.login;
     const url = data.html_url;
@@ -15,7 +15,6 @@ function updateProfile(data)
     const followers = data.followers;
     const following = data.following;
     const public_repos = data.public_repos;
-    const repos_url = data.repos_url;
 
     document.getElementById('usernameheading').innerHTML = login;
     document.getElementById('avatarurl').src = avatar_url;
@@ -30,18 +29,80 @@ function updateProfile(data)
 
 function updateRepoList(data) 
 {
-    // console.log(data);
+    // console.log(data); // array format
 
-    // const login = data.login;
+    let size = data.length;
 
-    // document.getElementById('usernameheading').innerHTML = login;
+    if(size==0)
+    {
+        document.getElementById('repoList').innerHTML = `
+        <h3 class="text-light text-center mb-5">User with username '${username1}' has not created any repository yet</h3>
+        `;
+
+        return;
+    }
+
+    // console.log(size);
+
+    str=``;
+
+    for(let i=0;i<size;i++)
+    {
+        currdata = data[i];
+
+        console.log(currdata);
+
+        str += `
+        <div class="col mb-5 brad">
+            <div class="card" id="rcard">
+                <div class="card-body fs-4 position-relative">
+                <h2 class="card-title text-center fs-3">
+                    ${currdata.name ? currdata.name.slice(0,50):"Unnamed"}
+                </h2>
+                <hr />
+                <p class="card-text">Description :</p>
+                <p>
+                ${currdata.description ? currdata.description.slice(0,50):currdata.name}
+                </p>
+                <p class="card-text">Created on : ${currdata.created_at}</p>
+                <p class="card-text">Open Issues : ${currdata.open_issues}</p>
+
+
+                <div class="position-absolute fixed-bottom pb-5">
+                    <hr />
+                    <div class="d-flex justify-content-around">
+                    <a href="${currdata.created_at}" class="btn btn-primary fs-4">Visit Repository</a>
+                    <a href="${currdata.homepage}" class="btn btn-success fs-4 ${!(currdata.homepage && currdata.homepage.length) ? "disabled" : "active"}">Visit Deployment</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    document.getElementById('repoList').innerHTML = str;
 
 
 }
 
+
+async function getRepoList(oldData) 
+{
+    // console.log(data);
+    // const login = data.login;
+
+    let repos_url = oldData.repos_url;
+
+    let response = await fetch(repos_url);
+    let data = await response.json()
+    
+    updateRepoList(data);
+}
+
 function uodateStatsCars(data) 
 {
-    console.log(data);
+    // console.log(data);
 
     const login = data.login;
 
@@ -51,6 +112,8 @@ function uodateStatsCars(data)
     document.getElementById('st2img').src = `https://github-readme-stats.vercel.app/api?username=${login}&show_icons=true&locale=en&theme=radical`;
 
     document.getElementById('st3img').src = `https://github-readme-streak-stats.herokuapp.com/?user=${login}&theme=radical`;
+
+    document.getElementById('st4img').src = `https://github-readme-activity-graph.cyclic.app/graph?username=${login}&bg_color=0D1117&color=5BCDEC&line=5BCDEC&point=FFFFFF&hide_border=true`;
 
 
 }
@@ -67,8 +130,13 @@ async function fetchDataFromApi(username) {
     // waits until the request completes...
     const data = await response.json();
 
+    if(data.message)
+    {
+        window.location.replace(`/404.html`);
+    }
+
     updateProfile(data);
-    updateRepoList(data);
+    getRepoList(data);
     uodateStatsCars(data);
 }
 
