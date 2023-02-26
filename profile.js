@@ -132,7 +132,7 @@ async function fetchDataFromApi(username) {
 
     if(data.message)
     {
-        window.location.replace(`/404.html`);
+        window.location.replace(`/github-wrapper-javascript/404.html`);
     }
 
     updateProfile(data);
@@ -150,7 +150,7 @@ function getUsernameFromUrl() {
     // http://127.0.0.1:5500/profile.html?Pratham2301
 
     let url = document.URL;
-    let userid = url.split("/profile.html?")[1];
+    let userid = url.split("profile.html?")[1];
     usernameheading.innerHTML = userid;
     return userid;
 }

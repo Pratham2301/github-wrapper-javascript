@@ -24,7 +24,7 @@ function getDetails()
     
     console.log(githubUsername);
 
-    window.location.replace(`/profile.html?${githubUsername}`);
+    window.location.replace(`/github-wrapper-javascript/profile.html?${githubUsername}`);
     
 }
 
