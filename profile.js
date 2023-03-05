@@ -133,6 +133,7 @@ async function fetchDataFromApi(username) {
     if(data.message)
     {
         window.location.replace(`/github-wrapper-javascript/404.html`);
+        // window.location.replace(`/404.html`);
     }
 
     updateProfile(data);
